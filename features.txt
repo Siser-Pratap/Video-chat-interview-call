@@ -1,0 +1,2 @@
+(1) A feature which allows users to send a video to his/her friends and add to his/her stories this video can range upto 5 minutes for now.
+(2) 
