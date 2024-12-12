@@ -1,0 +1,4 @@
+(1) A feature which allows users to send a video to his/her friends and add to his/her stories this video can range upto 5 minutes for now.
+(2) Feature in which you gets connected to random people on internet via video calls
+(3) Video meeting options 
+(4) Interview call options with screen sharing options for questions and a whitebox for people to carry out conversations or drawing along with a chat features which help users to chat with each other an option to allow user to record the meetings and and options which allows user to solve the problem in a compiler their itself.

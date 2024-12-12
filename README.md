@@ -1,4 +1,10 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Set up the Project
+
+# create next app with js/ts and tailwindcss in terminal
+```bash
+npx create-next-app@latest
+```
+
 
 ## Getting Started
 
