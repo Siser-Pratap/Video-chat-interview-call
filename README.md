@@ -1,6 +1,9 @@
 ## Set up the Project
 
-First, run npx create-next-app@latest in terminal
+# create next app with js/ts and tailwindcss in terminal
+```bash
+npx create-next-app@latest
+```
 
 
 ## Getting Started
