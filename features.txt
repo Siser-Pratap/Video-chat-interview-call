@@ -2,3 +2,66 @@
 (2) Feature in which you gets connected to random people on internet via video calls
 (3) Video meeting options 
 (4) Interview call options with screen sharing options for questions and a whitebox for people to carry out conversations or drawing along with a chat features which help users to chat with each other an option to allow user to record the meetings and and options which allows user to solve the problem in a compiler their itself.
+
+
+roadmap
+#Home page 
+
+(1) Draft a navbar for home page.
+(2) basic introduction at the front page with a 3d model on the right or video showing people talking to each other on video call
+(3) features of our app
+(4) how our app will help in various fields
+(5) steps to work or demo
+(6) qoute, testimonials, outstanding app features 
+(7) Integrate a chatbot for better user interaction
+(8) screenshots of user interface aligned to each other
+() Contact us section
+(9) Footer
+
+#Feature section page
+(10) Special features section page which give step by step features and its solutions in our app reference https://trueconf.com/products/tcsf/trueconf-server-free.html?utm_source=google&utm_medium=cpc&utm_campaign=19019318867&utm_content=637001191616&utm_term=virtual%20conference%20platform&utm_placement=&gad_source=1&gclid=CjwKCAiAgoq7BhBxEiwAVcW0LEAQ1-j2YjNlceiE6YmnC_xT8HIc7PFufCZkP7SmQKWzeqdykulPuxoCBgYQAvD_BwE
+
+
+#Login Page
+(1) Navbar 
+(2) login options email, password, forgot password, forgot email, special button for sign up
+(3) login using google oauth
+(4) footer
+
+
+#Signup Page
+(1) Navbar
+(2) Signup options email, password, name, userid, photo
+(3) special button for login
+(4) Google oauth signup
+
+#Dashboard page 
+(1) User information at the right 
+(2) options or the left side of the dashboard layout such as video call, voice call, chat, voice recording, meeting
+(3) user interaction in the right side of the dashboard
+(4) special section to allow people to follow to each other and connect to each other 
+(5) allow user to create meetings with each other with all the video calling options 
+(6) create invite link and options to send it to followers or any person outside
+(7) Special sharing options for outside world do not ask for user login if only meeting id is shared or can ask for as per view
+
+#update user page or profile page
+(1) profile picture
+(2) name
+(3) email
+(4) friend
+(5) update options
+
+
+
+
+
+
+
+
+
+
+
+References websites 
+(1) https://www.zegocloud.com/product/video-call?_source=g&_keyword=video%20call%20integration%20website&_adsgroup=138445785734&_adscamp=17951849659&utm_term=video%20call%20integration%20website&utm_campaign=%E5%8D%B0%E5%BA%A6-TCK&utm_source=adwords&utm_medium=ppc&hsa_acc=4689334831&hsa_cam=17951849659&hsa_grp=138445785734&hsa_ad=617485806639&hsa_src=g&hsa_tgt=kwd-819746201222&hsa_kw=video%20call%20integration%20website&hsa_mt=e&hsa_net=adwords&hsa_ver=3&gad_source=1&gclid=CjwKCAiAgoq7BhBxEiwAVcW0LE8ijLPlL1F0j1wAMaMdiXrA61_UtB_ye5pIZ2PCBlKEd6OkgfMD2xoCnk8QAvD_BwE
+
+(2) 
