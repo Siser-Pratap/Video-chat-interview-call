@@ -7,6 +7,8 @@ export const config = {
     matcher: ["/",
       "/login",
       "/traits",
-      
+      "/signup",
+      "/profile",
+      "/dashboard",
     ]
   }
