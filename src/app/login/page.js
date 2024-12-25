@@ -22,7 +22,7 @@ const Login = () => {
 
   const login = async() =>{
     try {
-      const res = await axios.post("", user); 
+      const res = await axios.post("/api/users/login", user); 
       console.log("user registered", res.data);
     } catch (error) {
       console.log(error.message);
