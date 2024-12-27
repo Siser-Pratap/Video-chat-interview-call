@@ -23,7 +23,7 @@ const Login = () => {
   const login = async() =>{
     try {
       const res = await axios.post("/api/users/login", user); 
-      console.log("user registered", res.data);
+      console.log("user logged in", res.data);
     } catch (error) {
       console.log(error.message);
     }
