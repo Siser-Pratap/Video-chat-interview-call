@@ -1,8 +1,18 @@
-## Set up the Project
+# Set up the Project
 
-# create next app with js/ts and tailwindcss in terminal
+### Fork this repository and open it locally using  github desktop or type into terminal
 ```bash
-npx create-next-app@latest
+git clone https://github.com/Siser-Pratap/vidverse.git
+```
+### Install dependencies and dev dependencies in terminal
+```bash 
+npm i 
+```
+### Setup your env file in the main project
+##### .env
+```bash
+MONGODB_URL = your Database link
+JWT_SECRET = your jwt secret key
 ```
 
 
@@ -19,7 +29,6 @@ pnpm dev
 # or
 bun dev
 ```
-
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
