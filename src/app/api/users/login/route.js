@@ -9,6 +9,7 @@ dbConfig();
 
 export async function POST(req) {
     try {
+        
         const reqBody = await req.json();
         const { email, password } = reqBody;
 
@@ -40,6 +41,7 @@ export async function POST(req) {
 
         return response;
     } catch (error) {
+       
         return NextResponse.json({ message: `Error logging in ${error.message}` }, { success: false }, { status: 500 });
     }
 }

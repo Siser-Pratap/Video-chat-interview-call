@@ -1,6 +1,7 @@
 "use client";
 import { NextResponse } from 'next/server';
 import React, { useState } from 'react';
+import axios from 'axios';
 
 const Page = () => {
 
@@ -18,10 +19,11 @@ const Page = () => {
     setuser({...user, password:e.target.value});
   }
 
-
-  const handleSubmit = async() => {
+  const handleSubmit = async(e) => {
+    e.preventDefault();
     try {
       const res = await axios.post("/api/users/signup", user);
+      console.log(res.data);
       if (res){
         console.log("user signed up", user);
       }
@@ -31,7 +33,7 @@ const Page = () => {
   }
 
   return (
-    <form >
+    <form onSubmit={handleSubmit}>
       <div>
         <label>Username:</label>
         <input
@@ -56,7 +58,7 @@ const Page = () => {
           onChange={handlepasswordChange}
         />
       </div>
-      <button onClick={handleSubmit} type="submit">Sign Up</button>
+      <button type="submit">Sign Up</button>
     </form>
   );
 };
