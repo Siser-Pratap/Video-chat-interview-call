@@ -20,7 +20,8 @@ const Login = () => {
     setuser({...user, password:e.target.value});
   }
 
-  const login = async() =>{
+  const login = async(e) =>{
+    e.preventDefault();
     try {
       const res = await axios.post("/api/users/login", user); 
       console.log("user logged in", res.data);
