@@ -1,20 +1,22 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import { logout } from '../../../redux/slices/userSlice'
+import axios from 'axios'
 
 const Logout = () => {
 
-    const dispatch = useDispatch();
-
-    const handleLogout = () => {
+    const handleLogout = async(e) => {
+        e.preventDefault();
         try {
-            dispatch(logout());
-            console.log("Logged out successfully");
-            alert("Logged out successfully");
+            const res = await axios.get("/api/users/logout");
+            console.log(res);
+            if(res.data.message){
+                alert(res.data.message);
+            }
         } catch (error) {
-            console.log("Error occurred while logging out", error.message);
+            console.log("Failed to log out", error.message);
         }
-    }   
+    }  
 
 return (
     <div className='flex justify-center items-center'>
