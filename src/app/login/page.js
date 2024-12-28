@@ -4,9 +4,13 @@ import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import axios from 'axios';
+import Logout from '../components/Logout';
+import { useDispatch } from 'react-redux';
+import { login } from '../../../redux/slices/userSlice';
 
 const Login = () => {
 
+  const dispatch=useDispatch();
   const [user, setuser] = useState({
     email:"",
     password:"",
@@ -25,12 +29,14 @@ const Login = () => {
     try {
       const res = await axios.post("/api/users/login", user); 
       console.log("user logged in", res.data);
+      dispatch(login(user));
     } catch (error) {
       console.log(error.message);
     }
   }
 
   return (
+    <>
         <div className="bg-gray-100 flex items-center justify-center min-h-screen">
             <div className="bg-white p-8 rounded-lg shadow-md w-96">
                 <h2 className="text-2xl font-bold text-center mb-6">Login</h2>
@@ -69,6 +75,8 @@ const Login = () => {
                 </form>
             </div>
         </div>
+        <Logout />
+        </>
     );
 };
 

@@ -25,6 +25,7 @@ export function middleware(request) {
 export const config = {
     matcher: ["/",
       "/login",
+      "/logout",
       "/traits",
       "/signup",
       "/profile",
