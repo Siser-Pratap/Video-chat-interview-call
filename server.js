@@ -29,7 +29,11 @@ app.prepare().then(()=>{
             socket.join(roomId);
             socket.emit("joined-room", {roomId});
             socket.broadcast.to(roomId).emit("user-joined", {username});
-})
+        })
+
+        socket.on("user-joined", ({emailId})=>{
+            console.log("user-joined", {emailId});
+        })
 
 
         socket.on('message', (data)=>{

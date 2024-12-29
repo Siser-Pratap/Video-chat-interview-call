@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {useRouter} from "next/navigation";
 import { socket } from '@/socket';
 
@@ -9,11 +9,18 @@ const JoinMeeting = () => {
     const [roomId, setRoomId] = useState('');
     const router = useRouter();
 
+    const handleRoomJoined = ({roomId}) => {
+        router.push(`/meeting/${roomId}`);
+    }
+
+    useEffect(()=>{
+        socket.on("joined-room", handleRoomJoined);    
+    },[socket]);
+
     const handleSubmit = (e) => {
         e.preventDefault();
         try {
                 socket.emit("join-room", {emailId:email, roomId:roomId, username:username});
-                router.push(`/meeting/${roomId}`);
         } catch (error) {
                 console.log("Error occurred while connecting ", error.message);
         }
