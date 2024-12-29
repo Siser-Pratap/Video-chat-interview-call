@@ -18,6 +18,7 @@ export default function Home() {
   const [isConnected, setisConnected] = useState(false);
   const [transport, setTransport] = useState(null);
   const [click, setclick] = useState(false);
+  const [message, setmessage] = useState("");
 
   useEffect(() => {
     if(socket.connected){
@@ -67,6 +68,16 @@ export default function Home() {
     }
   }
 
+  const handleChange = (e) => {
+    setmessage(e.target.value);
+  }
+
+  const submit = async(e) => {
+    e.preventDefault();
+    socket.emit('message', message);
+    setmessage("");
+  }
+
   
 
 
@@ -92,6 +103,11 @@ export default function Home() {
         <p>Status: { isConnected ? "connected" : "disconnected" }</p>
         <p>Transport: { transport }</p>
         <button onClick={handleDisconnect}>Disconnect</button>
+      </div>
+      <div>
+        <h1>Chat</h1>
+        <input type="text" onChange={handleChange} value={message} placeholder="Enter your message" />
+        <button onClick={submit}>Send</button>
       </div>
     </>
   );

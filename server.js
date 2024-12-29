@@ -22,7 +22,8 @@ app.prepare().then(()=>{
         });
         
         socket.on('message', (data)=>{
-            io.to(data.roomId).emit('message', data.message);
+            // io.to(data.roomId).emit('message', data.message);
+            console.log(data);
         })
 
         socket.on("disconnect", ()=>{
