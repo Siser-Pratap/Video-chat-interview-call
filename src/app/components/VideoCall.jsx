@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useState } from 'react';
 
 const VideoCall = ({ roomId }) => {
   const localVideoRef = useRef(null);
-  const [video, setVideo] = useState(false);
+  const [isStreaming, setIsStreaming] = useState(false);
   const streamRef = useRef(null); // Keep track of the media stream
 
   useEffect(() => {
@@ -12,35 +12,36 @@ const VideoCall = ({ roomId }) => {
         localVideoRef.current.srcObject = stream;
         streamRef.current = stream; // Save the stream reference
       } catch (err) {
-        console.error("Error accessing media devices.", err);
+        console.error("Error accessing media devices:", err);
       }
     };
 
     const stopVideo = () => {
       if (streamRef.current) {
-        streamRef.current.getTracks().forEach((track) => track.stop()); // Stop all tracks
+        // Stop all tracks (video and audio)
+        streamRef.current.getTracks().forEach((track) => track.stop());
         streamRef.current = null; // Clear the stream reference
-        localVideoRef.current.srcObject = null;
+        localVideoRef.current.srcObject = null; // Remove the stream from the video element
       }
     };
 
-    if (video) {
+    if (isStreaming) {
       startVideo();
     } else {
       stopVideo();
     }
 
     return () => stopVideo(); // Cleanup when the component unmounts
-  }, [video]);
+  }, [isStreaming]);
 
-  const toggleVideo = () => {
-    setVideo((prev) => !prev); // Toggle the video state
+  const toggleStreaming = () => {
+    setIsStreaming((prev) => !prev); // Toggle the streaming state
   };
 
   return (
     <div>
       <video ref={localVideoRef} autoPlay muted style={{ width: "100%", height: "auto" }} />
-      <button onClick={toggleVideo}>{video ? "Stop" : "Start"}</button>
+      <button onClick={toggleStreaming}>{isStreaming ? "Stop" : "Start"}</button>
     </div>
   );
 };
