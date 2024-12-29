@@ -6,6 +6,8 @@ import { useState } from "react";
 import axios from "axios";
 import { userAgent } from "next/server";
 import Meeting from "./components/Meeting";
+import VideoCall from "./components/VideoCall";
+
 
 
 
@@ -40,6 +42,9 @@ export default function Home() {
       </div>
       <Logout />
       <Meeting />
+      <div>
+        <VideoCall />
+      </div>
     </>
   );
 }
