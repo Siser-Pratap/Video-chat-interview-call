@@ -5,6 +5,7 @@ import Logout from "./components/Logout";
 import { useState } from "react";
 import axios from "axios";
 import { userAgent } from "next/server";
+import Meeting from "./components/Meeting";
 
 
 
@@ -38,6 +39,7 @@ export default function Home() {
         <button onClick={handleInformation}>Get User details</button>
       </div>
       <Logout />
+      <Meeting />
     </>
   );
 }
