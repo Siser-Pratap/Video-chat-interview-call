@@ -17,6 +17,7 @@ export default function Home() {
   const [data, setdata] = useState({email:"",username:""});
   const [isConnected, setisConnected] = useState(false);
   const [transport, setTransport] = useState(null);
+  const [click, setclick] = useState(false);
 
   useEffect(() => {
     if(socket.connected){
@@ -57,7 +58,13 @@ export default function Home() {
   }
 
   const handleDisconnect=()=>{
-    socket.disconnect();
+    setclick(!click);
+    if(click){
+      socket.disconnect();
+    }
+    else{
+      socket.connect();
+    }
   }
 
   
