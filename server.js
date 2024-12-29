@@ -16,11 +16,22 @@ app.prepare().then(()=>{
     io.on("connection", (socket)=>{
         console.log("User Connected", socket.id);
 
-        socket.on('join-room', (roomId)=>{
-            socket.join(roomId);
-            console.log("User joined room", roomId);
-        });
+        const emailToSocketMapping = new Map();
+
+        // socket.on('join-room', (roomId)=>{
+        //     socket.join(roomId);
+        //     console.log("User joined room", roomId);
+        // });
         
+        socket.on("join-room", ({emailId, roomId, username})=>{
+            console.log(`${username} joined room ${roomId}`);
+            emailToSocketMapping.set(emailId, socket.id);
+            socket.join(roomId);
+            socket.emit("joined-room", {roomId});
+            socket.broadcast.to(roomId).emit("user-joined", {username});
+})
+
+
         socket.on('message', (data)=>{
             // io.to(data.roomId).emit('message', data.message);
             console.log(data);

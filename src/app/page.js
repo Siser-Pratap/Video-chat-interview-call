@@ -8,6 +8,7 @@ import Meeting from "./components/Meeting";
 import VideoCall from "./components/VideoCall";
 import { useEffect, useState } from "react";
 import { socket } from "@/socket";
+import JoinMeeting from "./components/JoinMeeting";
 
 
 
@@ -108,6 +109,9 @@ export default function Home() {
         <h1>Chat</h1>
         <input type="text" onChange={handleChange} value={message} placeholder="Enter your message" />
         <button onClick={submit}>Send</button>
+      </div>
+      <div>
+        <JoinMeeting />
       </div>
     </>
   );
