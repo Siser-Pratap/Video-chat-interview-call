@@ -2,11 +2,12 @@
 import Image from "next/image";
 import Navbar from "./components/Navbar";
 import Logout from "./components/Logout";
-import { useState } from "react";
 import axios from "axios";
 import { userAgent } from "next/server";
 import Meeting from "./components/Meeting";
 import VideoCall from "./components/VideoCall";
+import { useEffect, useState } from "react";
+import { socket } from "@/socket";
 
 
 
@@ -14,6 +15,36 @@ import VideoCall from "./components/VideoCall";
 export default function Home() {
 
   const [data, setdata] = useState({email:"",username:""});
+  const [isConnected, setisConnected] = useState(false);
+  const [transport, setTransport] = useState(null);
+
+  useEffect(() => {
+    if(socket.connected){
+      onConnect();
+    }
+
+    function onConnect() {
+      setisConnected(true);
+      setTransport(socket.io.engine.transport.name);
+    
+      socket.io.engine.on("upgrade", (transport) => {
+        setTransport(transport.name);
+      });
+    } 
+
+    function onDisconnect(){
+      setisConnected(false);
+      setTransport(null);
+    }
+
+    socket.on('connect', onConnect);
+    socket.on('disconnect', onDisconnect);
+
+    return () =>{
+      socket.off("connect", onConnect);
+      socket.off("disconnect", onDisconnect);
+    }
+  }, []);
 
   const handleInformation = async(e)=>{
     e.preventDefault();
@@ -23,6 +54,10 @@ export default function Home() {
     } catch (error) {
       console.log(error.message);
     }
+  }
+
+  const handleDisconnect=()=>{
+    socket.disconnect();
   }
 
   
@@ -44,6 +79,12 @@ export default function Home() {
       <Meeting />
       <div>
         <VideoCall />
+      </div>
+      <div>
+        <h1>Socket functionality</h1>
+        <p>Status: { isConnected ? "connected" : "disconnected" }</p>
+        <p>Transport: { transport }</p>
+        <button onClick={handleDisconnect}>Disconnect</button>
       </div>
     </>
   );
