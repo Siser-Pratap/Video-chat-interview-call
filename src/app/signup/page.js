@@ -5,10 +5,10 @@ import axios from 'axios';
 
 const Page = () => {
 
-  const [user, setuser] = useState({userName: '', email: '', password: ''});
+  const [user, setuser] = useState({username: '', email: '', password: ''});
 
-  const handleuserNameChange = (e) => {
-    setuser({...user, userName:e.target.value});
+  const handleusernameChange = (e) => {
+    setuser({...user, username:e.target.value});
   }
 
   const handleemailChange = (e) => {
@@ -35,11 +35,11 @@ const Page = () => {
   return (
     <form onSubmit={handleSubmit}>
       <div>
-        <label>userName:</label>
+        <label>username:</label>
         <input
           type="text"
-          value={user.userName}
-          onChange={handleuserNameChange}
+          value={user.username}
+          onChange={handleusernameChange}
         />
       </div>
       <div>

@@ -14,7 +14,7 @@ export async function POST(req) {
 
         const { username, email, password } = reqBody;
         console.log("Extracted data - userName:", username, "Email:", email);
-        const userName = username;
+        
 
         const user = await User.findOne({ email: email });
         if (user) {
@@ -28,7 +28,7 @@ export async function POST(req) {
         const hashedPassword = await bcrypt.hash(password, salt);
         console.log("Password hashed");
 
-        const newUser = new User({ userName:username, email, password: hashedPassword });
+        const newUser = new User({ username, email, password: hashedPassword });
         console.log("New user object created:", newUser);
 
         const savedUser = await newUser.save();
