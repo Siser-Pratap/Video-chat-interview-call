@@ -14,15 +14,10 @@ app.prepare().then(()=>{
     const io = new Server(httpServer);
 
     io.on("connection", (socket)=>{
-        console.log("User Connected", socket.id);
-
         const emailToSocketMapping = new Map();
 
-        // socket.on('join-room', (roomId)=>{
-        //     socket.join(roomId);
-        //     console.log("User joined room", roomId);
-        // });
-        
+        console.log("User Connected", socket.id);
+
         socket.on("join-room", ({emailId, roomId, username})=>{
             console.log(`${username} joined room ${roomId}`);
             emailToSocketMapping.set(emailId, socket.id);
@@ -35,15 +30,15 @@ app.prepare().then(()=>{
             console.log("user-joined", {emailId});
         })
 
-
-        socket.on('message', (data)=>{
-            // io.to(data.roomId).emit('message', data.message);
-            console.log(data);
+        socket.on('message', (msg)=>{
+            console.log("Message Received", msg);
+            io.emit('message', msg);
         })
 
         socket.on("disconnect", ()=>{
             console.log("User Disconnected", socket.id);
         });
+
     });
 
     httpServer

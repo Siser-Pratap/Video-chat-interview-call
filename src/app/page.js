@@ -9,6 +9,8 @@ import VideoCall from "./components/VideoCall";
 import { useEffect, useState } from "react";
 import { socket } from "@/socket";
 import JoinMeeting from "./components/JoinMeeting";
+import Message from "./components/message";
+import Chat from "./components/Chat";
 
 
 
@@ -112,6 +114,12 @@ export default function Home() {
       </div>
       <div>
         <JoinMeeting />
+      </div>
+      <div>
+        <Message />
+      </div>
+      <div>
+        <Chat />
       </div>
     </>
   );
