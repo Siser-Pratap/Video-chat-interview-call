@@ -147,6 +147,20 @@ Integrating Zoom functionality
 
 
 
+Creating Navbar
+(1) Integrating 3d logo and rotating it 360 degree
+(2) semi black bg with figma design theme color
+(3) Title with different font 
+(4) Navbar buttons
+(5) gsap functionality for small devices
+(6) github link setup 
+(7) login and logout button 
+(8) keeping it transparent so that the beneath stars functionality also work for it 
+(9) it is not fixed upto the main page
+(10) when the main page is scrolled it gets fixed to the top with semi black bg
+
+
+
 
 
 
