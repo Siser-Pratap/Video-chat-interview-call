@@ -6,6 +6,10 @@ import Logout from '../components/Logout';
 import { useDispatch } from 'react-redux';
 import { login as loginAction } from '../../../redux/slices/userSlice';
 import { useRouter } from 'next/navigation';
+import { Suspense } from 'react';
+import dynamic from 'next/dynamic';
+
+const DynamicLogo = dynamic(() => import("../components/LogoModel"), { ssr: false });
 
 const Login = () => {
   const router = useRouter();
@@ -24,13 +28,12 @@ const Login = () => {
   };
 
   const login = async (e) => {
-    
+    e.preventDefault();
     try {
       const res = await axios.post("/api/users/login", user);
       console.log("user logged in", res.data);
       router.push("/");
       dispatch(loginAction(user));
-      
     } catch (error) {
       console.log(error.message);
     }
@@ -38,6 +41,11 @@ const Login = () => {
 
   return (
     <>
+      <div>
+        <Suspense fallback={<span>Loading...</span>}>
+          <DynamicLogo />
+        </Suspense>
+      </div>
       <div className="bg-gray-100 flex items-center justify-center min-h-screen">
         <div className="bg-white p-8 rounded-lg shadow-md w-96">
           <h2 className="text-2xl font-bold text-center mb-6">Login</h2>
