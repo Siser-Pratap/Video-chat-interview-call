@@ -1,8 +1,11 @@
-
+"use client";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-
+import React, { useState, useRef, useEffect } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 import ClientProvider from "../../helper/ClientProvider";
+import Navbar from "./components/Navbar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,20 +17,16 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata = {
-  title: "VidVerse",
-  description: "Video Sharing, Chatting and Interviewing Services build in Next.js",
-};
-
-export default function RootLayout({ children }) {
+export default function RootLayout({children}) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <ClientProvider>
-          {children}
-        </ClientProvider>
+      <head>
+        <link rel="icon" href="/favicon.ico" />
+        <title>VidVerse</title>
+      </head>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black`}>
+        <Navbar />
+        <main>{children}</main>
       </body>
     </html>
   );

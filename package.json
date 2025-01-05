@@ -10,6 +10,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@gsap/react": "^2.1.1",
     "@react-three/drei": "^9.120.4",
     "@react-three/fiber": "^9.0.0-alpha.8",
     "@reduxjs/toolkit": "^2.5.0",
@@ -17,6 +18,7 @@
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "express": "^4.21.2",
+    "gsap": "^3.12.5",
     "http": "^0.0.1-security",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.9.2",

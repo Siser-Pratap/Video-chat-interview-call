@@ -86,8 +86,8 @@ export default function Home() {
 
   return (
     <>
-      <Navbar />
-      <div className="flex flex-col mt-[100px] gap-[10px] justify-center items-center h-full w-full">
+      
+      {/* <div className="flex flex-col mt-[100px] gap-[10px] justify-center items-center h-full w-full">
         <h1>
           Username : {data.username}
         </h1>
@@ -95,8 +95,8 @@ export default function Home() {
           email: {data.email}
         </h2>
         <button onClick={handleInformation}>Get User details</button>
-      </div>
-      <Logout />
+      </div> */}
+      {/* <Logout />
       <Meeting />
       <div>
         <VideoCall />
@@ -120,7 +120,7 @@ export default function Home() {
       </div>
       <div>
         <Chat />
-      </div>
+      </div> */}
     </>
   );
 }

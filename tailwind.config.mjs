@@ -11,6 +11,10 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        'primary':'linear-gradient(to right, #16bffd, #cb3066)'
+      },
+      backgroundImage:{
+        'hero': "url('/hero.jpg')",
       },
     },
   },
